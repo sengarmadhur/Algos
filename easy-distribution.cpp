@@ -3,6 +3,7 @@ using namespace std;
 #define ull unsigned long long int
 const int MOD =1000000007;
 ull fact[100001];
+//Precomputing factorial of all numbers under modulo
 void factorial()
 {   fact[0]=1;
     for(int i=1;i<100001;i++)
@@ -10,7 +11,7 @@ void factorial()
         fact[i] = (fact[i-1]*i)%MOD;
     }
 }
-// (n!%m)*((r!)^m-2)%m)*(((n-r)!)^m-2)%m)%m
+//Fast Power Function
 ull POWER(ull x,ull y)
 {
     if(y==0)return 1;
@@ -24,6 +25,7 @@ ull POWER(ull x,ull y)
     }
     return x;
 }
+//Function to calculate ncr
 ull ncr(int n,int r)
 {
     ull ans = fact[n]%MOD;
@@ -31,7 +33,7 @@ ull ncr(int n,int r)
     return ans;
 }
 int main()
-{
+{   // (n!%m)*((r!)^m-2)%m)*(((n-r)!)^m-2)%m)%m this is Fermat Little Theorem
     factorial();
     int n,m; cin>>n>>m;
     ull ans=0;
