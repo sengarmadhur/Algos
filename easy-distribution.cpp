@@ -37,11 +37,13 @@ int main()
     factorial();
     int n,m; cin>>n>>m;
     ull ans=0;
-    ull k = n/m;
+    
+    ull k = n/m;//upto how many chocolates he can distribute(max chocolate he can distribute)
+    
     for(ull i=1;i<=k;i++){
     ull p=1;
-    int temp =n+i;
-    for(int j=0;j<m;j++){
+    int temp =n+i;//adding i to avoid initial reduction of i before distribution i.e when j=0
+    for(int j=0;j<m;j++){//(n)C(i)*(n-i)C(i)*(n-2*i)C(i)*(n-3i)C(i).....
         temp-=i;
         p*=ncr(temp,i);
         p%=MOD;
