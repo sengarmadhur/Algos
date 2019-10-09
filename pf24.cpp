@@ -9,9 +9,11 @@ int prime[1000001];
 int fact[1000001];
 void sieve(){
     memset(prime,0,sizeof(prime));
-    memset(fact,0,sizeof(fact));
+    memset(fact,0,sizeof(fact));//set all to 0
     fact[0]=0,fact[1]=0;
     for(int i=2;i<=1000000;i++){
+       
+        //if i is prime number find all numbers from i to 1000000 which are divisible by i
         if(prime[i]==0){
             for(int j=1;j*i<=1000000;j++){
                 prime[i*j]=1;
